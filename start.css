@@ -2,10 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: gilroy;
+    font-family: 'Gilroy', sans-serif;
 }
-html,
-body {
+
+html, body {
     height: 100%;
     width: 100%;
     background-color: white;
@@ -13,8 +13,11 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    position: relative;
 }
-.imgcon{
+
+/* === IMAGE CONTAINER === */
+.imgcon {
     background-image: url('18880485_v991-a-23-b-removebg-preview.png');
     background-position: center;
     background-size: contain;
@@ -22,33 +25,51 @@ body {
     position: absolute;
     height: 65vh;
     width: 40vh;
+    max-width: 90%;
     border: 4vh solid rgb(242, 237, 237);
     border-radius: 30vw;
     top: 10vh;
-
+    transition: all 0.3s ease;
 }
-.decor{
+
+.imgcon:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    transform: scale(1.03);
+}
+
+/* === DECOR BAR === */
+.decor {
     position: absolute;
-    height:     30vh;
+    height: 30vh;
     width: 120vh;
+    max-width: 100%;
     background-color: black;
     right: 0;
-    bottom: 0px;
+    bottom: 0;
     border-top-left-radius: 100%;
-
 }
-button{
+
+/* === BUTTON === */
+button {
     position: absolute;
-     background-color: #03ccb5;
+    background-color: #03ccb5;
     right: 20vh;
     bottom: 10vh;
     height: 8vh;
     width: 20vh;
     border-radius: 3vh;
     border: none;
-
+    transition: all 0.3s ease;
 }
-.intro{
+
+button:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* === INTRO TEXT === */
+.intro {
     position: absolute;
     color: black;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -62,33 +83,20 @@ button{
     justify-content: center;
     align-items: center;
     padding-bottom: 10px;
-   
-}
-button:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    transform: scale(1.05);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.imgcon:hover {
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-    transform: scale(1.03);
     transition: all 0.3s ease;
 }
 
 .intro:hover {
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
     transform: scale(1.02);
-    transition: all 0.3s ease;
 }
 
-
+/* === HEADER === */
 .header {
     position: fixed;
     top: 0;
     width: 100%;
-     background-color: #00796b;
+    background-color: #00796b;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -119,4 +127,56 @@ button:hover {
 
 .contact-info {
     font-size: 0.9rem;
+}
+
+/* === MEDIA QUERIES === */
+@media (max-width: 768px) {
+    .imgcon {
+        position: absolute;
+        width: 50vw;
+        height: 50%;
+        top: 12vh;
+        border-width: 3vh;
+        border-color: #03ccb5;
+        top: 25%;
+    }
+
+    .intro {
+      
+        width: 40vw;
+        font-size: 0.4rem;
+        top: 70%;
+        left: 1vw;
+        text-align: center;
+        border-bottom: 2px solid black;
+    }
+
+    button {
+        width: 50vw;
+        height: 7vh;
+        font-size: 1rem;
+        right: 5vw;
+        bottom: 8vh;
+    }
+
+    .decor {
+        width: 100vw;
+        height: 20vh;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1vh 5vw;
+    }
+
+    .nav {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 1vh;
+    }
+
+    .nav a {
+        margin: 0.5vh 1vw;
+    }
 }
