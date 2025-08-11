@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1% Impact - Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #114B5F;   /* Deep teal/navy */
+      --secondary: #1A936F; /* Aqua teal */
+      --accent: #88D498;     /* Mint green */
+      --text-light: #F5F5F5; /* Using a slightly softer white */
+      --text-dark: #114B5F;
+    }
+
+    /* Global Resets and Best Practices */
+    *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+      background: var(--primary);
+      color: var(--text-light);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1rem;
+    }
+
+    .login-card {
+      background: var(--secondary);
+      padding: 2.5rem 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    h2 {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+    
+    .input-group {
+        position: relative;
+        margin-bottom: 1.75rem;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 12px 10px;
+      border: 2px solid var(--accent);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      background-color: rgba(0, 0, 0, 0.2);
+      color: var(--text-light);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    /* This empty placeholder is key for the floating label effect to work on page load */
+    .input-field::placeholder {
+        color: transparent;
+    }
+
+    .input-label {
+        position: absolute;
+        top: 12px;
+        left: 10px;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.7);
+        pointer-events: none;
+        transition: all 0.3s ease;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: var(--text-light);
+      box-shadow: 0 0 10px rgba(136, 212, 152, 0.4);
+    }
+    
+    /* This is the floating label animation trigger */
+    .input-field:focus + .input-label,
+    .input-field:not(:placeholder-shown) + .input-label {
+        top: -12px;
+        left: 8px;
+        font-size: 0.8rem;
+        background-color: var(--secondary);
+        color: var(--accent);
+        padding: 0 5px;
+    }
+
+
+    .login-button {
+      width: 100%;
+      padding: 0.9rem;
+      background: var(--accent);
+      border: none;
+      border-radius: 8px;
+      color: var(--text-dark);
+      font-size: 1.1rem;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .login-button:hover {
+      background: #79C98B; /* A slightly brighter version of accent */
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    .links {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+    }
+
+    .links a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    .links a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+      transform: translateY(-2px);
+    }
+
+    /* MEDIA QUERIES FOR RESPONSIVENESS */
+    @media (max-width: 480px) {
+      .login-card {
+        padding: 2rem 1.5rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .links {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-card">
+    <h2>Welcome Back</h2>
+    <form action="#" method="POST">
+      <div class="input-group">
+        <input type="email" id="email" class="input-field" placeholder=" " required>
+        <label for="email" class="input-label">Email</label>
+      </div>
+      <div class="input-group">
+        <input type="password" id="password" class="input-field" placeholder=" " required>
+        <label for="password" class="input-label">Password</label>
+      </div>
+      <button type="submit" class="login-button">Login</button>
+    </form>
+    <div class="links">
+      <a href="#">Forgot Password?</a>
+      <a href="#">Sign Up</a>
+    </div>
+  </div>
+
+</body>
+</html>

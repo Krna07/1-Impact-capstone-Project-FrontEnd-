@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Stories - 1% Impact</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #00695c;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .auth-buttons button {
+            padding: 0.4rem 1rem;
+            background-color: white;
+            color: #00695c;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        
+        .auth-buttons button a {
+            text-decoration: none;
+            color: #00695c;
+        }
+
+        .auth-buttons button:hover {
+            background-color: #b2dfdb;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .main-content h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #00695c;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .story-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .story-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .story-image-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9e9e9e;
+        }
+
+        .story-content {
+            padding: 1.5rem;
+        }
+
+        .story-content h3 {
+            color: #004d40;
+            margin-bottom: 1rem;
+        }
+
+        .story-content blockquote {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid #26a69a;
+        }
+
+        .story-author {
+            font-weight: bold;
+            text-align: right;
+            color: #00796b;
+        }
+
+        /* Call to Action Section */
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background-color: #e0f2f1;
+            margin-top: 3rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #00695c;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .cta-button {
+            padding: 0.8rem 2rem;
+            background-color: #26a69a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background-color: #00796b;
+        }
+
+        /* Footer Styles */
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #004d40;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>1% Impact</h1>
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="#">About</a>
+            <a href="#">Causes</a>
+            <a href="#">Donate</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="auth-buttons">
+            <button><a href="index.html">Back To Start</a></button>
+            <button>Login</button>
+            <button>Sign Up</button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1>Voices of Hope & Gratitude</h1>
+        <div class="stories-grid">
+            <!-- Story 1: Education -->
+            <div class="story-card">
+                <img class="story-image" src="https://placehold.co/600x400/a7d7c5/333333?text=Education+Impact" alt="Child studying happily">
+                <div class="story-content">
+                    <h3>A Future Brightened by Education</h3>
+                    <blockquote>"Because of your support, my daughter can now go to school every day. She dreams of becoming a teacher. Thank you for giving her a future."</blockquote>
+                    <p class="story-author">- Priya, Mother of Aisha</p>
+                </div>
+            </div>
+
+            <!-- Story 2: Medical Aid -->
+            <div class="story-card">
+                <img class="story-image" src="https://placehold.co/600x400/f7c8e0/333333?text=Medical+Aid" alt="Doctor attending to a patient">
+                <div class="story-content">
+                    <h3>A Lifeline for Our Village</h3>
+                    <blockquote>"The medical supplies we received were a lifeline. Our small clinic can now serve the entire village, treating illnesses that were once a death sentence. We are forever grateful."</blockquote>
+                    <p class="story-author">- Dr. Ramesh, Village Clinic</p>
+                </div>
+            </div>
+
+            <!-- Story 3: Food Security -->
+            <div class="story-card">
+                 <img class="story-image" src="https://placehold.co/600x400/d4a5a5/333333?text=Food+Security" alt="Family receiving food supplies">
+                <div class="story-content">
+                    <h3>Nourishment and Hope</h3>
+                    <blockquote>"For months, we struggled to find enough food. The monthly ration kits have not only filled our stomachs but also our hearts with hope. We can now focus on rebuilding our lives."</blockquote>
+                    <p class="story-author">- The Kumar Family</p>
+                </div>
+            </div>
+            
+            <!-- Story 4: Clean Water -->
+            <div class="story-card">
+                 <img class="story-image" src="https://placehold.co/600x400/87ceeb/333333?text=Clean+Water" alt="Clean water well">
+                <div class="story-content">
+                    <h3>The Gift of Clean Water</h3>
+                    <blockquote>"The new well in our community has changed everything. Our children are healthier, and we no longer have to walk miles for clean water. It's a true blessing."</blockquote>
+                    <p class="story-author">- Maria, Community Leader</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="cta-section">
+        <h2>Inspired to Make a Difference?</h2>
+        <p>You can be a part of the next success story. Your contribution, no matter the size, can change a life.</p>
+        <a href="#" class="cta-button">Donate Now</a>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 1% Impact. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
