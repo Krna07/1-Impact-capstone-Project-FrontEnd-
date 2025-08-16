@@ -1,385 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>1% Impact</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    body {
-      background-color: #f9f9f9;
-      color: #333;
-    }
-
-    .header {
-      background-color: #00695c;
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .nav {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
-      padding: 5px 10px;
-      border-radius: 4px;
-    }
-
-    .nav a:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      text-decoration: none;
-    }
-
-    .auth-buttons {
-      display: flex;
-      gap: 0.8rem;
-    }
-
-    .auth-buttons button {
-      padding: 0.4rem 1rem;
-      background-color: white;
-      color: #00695c;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s ease;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .auth-buttons button:hover {
-      background-color: #b2dfdb;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-      transform: scale(1.05);
-    }
-
-    .hero {
-      background-image: url('international-day-education-illustration.jpg');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      padding: 6rem 2rem;
-      text-align: center;
-    }
-
-    .hero-content {
-      background: rgba(91, 93, 120, 0.5);
-      padding: 2rem;
-      display: inline-block;
-      border-radius: 10px;
-      transition: 0.3s ease;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .hero-content:hover {
-      transform: scale(1.03);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-    }
-
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
-
-    .hero button {
-      padding: 0.7rem 1.5rem;
-      background-color: #26a69a;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .hero button:hover {
-      background-color: #00796b;
-      transform: scale(1.05);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    /* How it Works Section */
-    .how-it-works {
-      padding: 3rem 2rem;
-      text-align: center;
-      background-color: #f9f9f9;
-    }
-    
-    .how-it-works h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: #00695c;
-    }
-
-    .steps-container {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-
-    .step {
-      max-width: 250px;
-    }
-
-    .step-icon {
-      font-size: 3rem;
-      color: #26a69a;
-      margin-bottom: 1rem;
-    }
-
-    .step h3 {
-      margin-bottom: 0.5rem;
-      color: #004d40;
-    }
-
-    /* Stats Section */
-    .stats {
-      background-color: #00796b;
-      color: white;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-
-    .stats-container {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-    }
-
-    .stat-item {
-      margin: 1rem;
-    }
-
-    .stat-item h3 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-item p {
-      font-size: 1.1rem;
-      font-weight: 500;
-    }
-
-
-    .features {
-      display: flex;
-      justify-content: space-around;
-      padding: 3rem 2rem;
-      background-color: #e0f2f1;
-      flex-wrap: wrap;
-    }
-
-    .feature-box {
-      width: 300px;
-      margin: 1rem;
-      padding: 2rem;
-      background-color: white;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      text-align: center;
-      transition: 0.3s ease;
-    }
-
-    .feature-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .feature-box h3 {
-      margin-bottom: 1rem;
-      color: #00796b;
-    }
-
-    /* Testimonials Section */
-    .testimonials {
-      padding: 3rem 2rem;
-      background-color: #f9f9f9;
-    }
-
-    .testimonials h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: #00695c;
-    }
-
-    .testimonials-container {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .testimonial-card {
-      background-color: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      max-width: 400px;
-      border-left: 5px solid #26a69a;
-    }
-
-    .testimonial-card blockquote {
-      font-style: italic;
-      color: #555;
-      margin-bottom: 1rem;
-      border-left: none;
-    }
-
-    .testimonial-author {
-      font-weight: bold;
-      color: #004d40;
-      text-align: right;
-    }
-
-    .footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #004d40;
-      color: white;
-      margin-top: 2rem;
-      box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.2);
-    }
-     .view-more-button {
-     
-        display: inline-block;
-        margin-top: 2rem;
-        padding: 0.6rem 1.8rem;
-        background-color: #26a69a;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-    }
-
-    .view-more-button:hover {
-        background-color: #00796b;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="start.css">
 </head>
 <body>
-  <header class="header">
-    <h1>1% Impact</h1>
+
+
+    <!-- Header Panel -->
+<header class="header">
+    <div class="logo">1% Impact </div>
     <nav class="nav">
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Causes</a>
-      <a href="#">Donate</a>
-      <a href="#">Contact</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#support">Support</a>
+        <a href="#contact">Contact</a>
     </nav>
-    <div class="auth-buttons">
-      <a href="index.html"><button>Back To Start</button></a>
-      <a href="Login.html"> <button>Login</button></a>
-      <a href="Signup.html"><button>Sign Up</button></a>
+    <div class="contact-info">
+        📞 +91-9876543210 | ✉️ support@1%impact.in
     </div>
-  </header>
+</header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h2>Together, We Can Make a Difference</h2>
-      <p>Your small help can bring big change to someone's life.</p>
-      <button>Donate Now</button>
-    </div>
-  </section>
+    <div class="imgcon">
 
-  <section class="how-it-works">
-    <h2>How It Works</h2>
-    <div class="steps-container">
-      <div class="step">
-        <div class="step-icon">👤</div>
-        <h3>Choose a Cause</h3>
-        <p>Pick a cause that you are passionate about, from education to healthcare.</p>
-      </div>
-      <div class="step">
-        <div class="step-icon">💳</div>
-        <h3>Make a Donation</h3>
-        <p>Contribute any amount. Every little bit helps create a significant impact.</p>
-      </div>
-      <div class="step">
-        <div class="step-icon">❤️</div>
-        <h3>See the Impact</h3>
-        <p>Receive updates and see how your donation is changing lives for the better.</p>
-      </div>
     </div>
-  </section>
+    <div class="decor">
 
-  <section class="stats">
-    <div class="stats-container">
-      <div class="stat-item">
-        <h3>$1,250,000+</h3>
-        <p>Donated</p>
-      </div>
-      <div class="stat-item">
-        <h3>5,000+</h3>
-        <p>Lives Touched</p>
-      </div>
-      <div class="stat-item">
-        <h3>15,000+</h3>
-        <p>Generous Donors</p>
-      </div>
-       <div class="stat-item">
-        <h3>25+</h3>
-        <p>Causes Supported</p>
-      </div>
     </div>
-  </section>
-
-  <section class="features">
-    <div class="feature-box">
-      <h3>Feed the Hungry</h3>
-      <p>Provide food to families in need.</p>
+    <div class="intro">
+        Deep dive in Helping
+        <p>
+            help to Grow 
+        </p>
     </div>
-    <div class="feature-box">
-      <h3>Educate a Child</h3>
-      <p>Support education for underprivileged kids.</p>
-    </div>
-    <div class="feature-box">
-      <h3>Medical Help</h3>
-      <p>Fund medical treatments and supplies.</p>
-    </div>
-  </section>
-
-  <section class="testimonials">
-    <h2>Stories of Change</h2>
-    <div class="testimonials-container">
-      <div class="testimonial-card">
-        <blockquote>"Because of your support, my daughter can now go to school every day. She dreams of becoming a teacher. Thank you for giving her a future."</blockquote>
-        <p class="testimonial-author">- Priya, Mother of a sponsored child</p>
-      </div>
-      <div class="testimonial-card">
-        <blockquote>"The medical supplies we received were a lifeline. Our small clinic can now serve the entire village, treating illnesses that were once a death sentence. We are forever grateful."</blockquote>
-        <p class="testimonial-author">- Dr. Ramesh, Village Clinic</p>
-      </div>
-    </div>
-     <a href="successStory.html" class="view-more-button">Show More SuccesStory</a>
-  </section>
-
-  <footer class="footer">
-    <p>© 2025 1% Impact. All rights reserved.</p>
-  </footer>
+    <a href="index.html"><button>Get Started</button></a>
 </body>
 </html>
