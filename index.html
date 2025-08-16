@@ -50,7 +50,6 @@
       display: flex;
       gap: 0.8rem;
     }
-
     .auth-buttons button {
       padding: 0.4rem 1rem;
       background-color: white;
@@ -159,8 +158,8 @@
     }
     /* Profile circle same size as buttons */
 .profile-icon {
-  width: 45px;   /* same height as buttons */
-  height: 45px;
+  width: 50px;   /* same height as buttons */
+  height: 50px;
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
@@ -168,15 +167,19 @@
   align-items: center;
   justify-content: center;
   background-color: white;   /* optional background */
-  border: 2px solid #007bff;
+  border: 1px solid rgb(78, 77, 77);
   margin-left: 10px; /* space from Login/Signup button */
   transition: transform 0.2s ease;
+
 }
 
 .profile-icon img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  background-size: 20px 20px;
+  background-position: center;
+
 }
 
 .profile-icon:hover {
@@ -202,7 +205,7 @@
 </a>
 <div class="top-bar">
     <a href="dashboard.html" class="profile-icon">
-      <img src="man.png" alt="User">
+      <img src="user.png" alt="User">
     </a>
   </div>
     </div>
