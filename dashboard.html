@@ -1,60 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
-    <link rel="stylesheet" href="dashboard.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: rgb(0,105,92);
+      --primary-hover: #38ca5898;
+      --background-color: #f8fafc;
+      --card-background: #ffffff;
+      --text-primary: #030303;
+      --text-secondary: #010101;
+      --border-color: #e2e8f0;
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --border-radius: 8px;
+      --font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--background-color);
+      color: var(--text-primary);
+      font-family: var(--font-family);
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    /* Header */
+    .dashboard-header {
+      background: var(--card-background);
+      padding: 25px 30px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-md);
+      margin-bottom: 20px;
+      border-left: 5px solid var(--primary-color);
+    }
+
+    .dashboard-header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .dashboard-header p {
+      color: var(--text-secondary);
+    }
+
+    /* Profile Overview */
+    .profile-overview {
+      background: var(--card-background);
+      padding: 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+      margin-bottom: 25px;
+    }
+
+    .profile-overview h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+
+    .profile-info p {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .profile-info span {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Toggle Button */
+    #show-details-btn {
+      display: block;
+      width: 100%;
+      max-width: 250px;
+      margin: 0 auto 25px;
+      padding: 12px 20px;
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #show-details-btn:hover {
+      background: var(--primary-hover);
+    }
+
+    /* Cards Layout */
+    #details-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 25px;
+    }
+
+    #details-section.hidden {
+      display: none;
+    }
+
+    .card {
+      background: var(--card-background);
+      padding: 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .card h2 {
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    form input, form button {
+      padding: 10px;
+      border-radius: var(--border-radius);
+      border: 1px solid var(--border-color);
+    }
+
+    form input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+    }
+
+    form button {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background: var(--primary-hover);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 15px;
+    }
+
+    ul li {
+      background: #f9fafb;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 10px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    ul li .amount {
+      color: #16a34a;
+      font-weight: 600;
+    }
+
+    ul li .date {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Welcome, <span id="username-display">User</span></h1>
-            <p>Total Donated: ₹<span id="total-donated">0</span></p>
-        </header>
+  <div class="container">
+    <header class="dashboard-header">
+      <h1>Welcome, <span id="username-display">User</span></h1>
+      <p>Total Donated: ₹<span id="total-donated">1250.00</span></p>
+    </header>
 
-        <!-- Button to show details -->
-        <button id="show-details-btn">Show All Details</button>
+    <!-- Profile Overview (Always Visible) -->
+    <section class="profile-overview">
+      <h2>Profile Overview</h2>
+      <div class="profile-info">
+        <p><strong>Name:</strong> <span id="profile-name">User</span></p>
+        <p><strong>Email:</strong> <span id="profile-email">user@example.com</span></p>
+        <p><strong>Annual Income:</strong> ₹<span id="profile-income">500000</span></p>
+      </div>
+    </section>
 
-        <!-- Sections (Initially hidden) -->
-        <div id="details-section" style="display: none;">
-            <!-- Profile Editing -->
-            <section class="card">
-                <h2>Edit Profile</h2>
-                <form id="profile-form">
-                    <input type="text" id="name" placeholder="Name" required>
-                    <input type="email" id="email" placeholder="Email" required>
-                    <input type="password" id="password" placeholder="Password" required>
-                    <input type="number" id="income" placeholder="Annual Income" required>
-                    <button type="submit">Update Profile</button>
-                </form>
-            </section>
+    <button id="show-details-btn">Show Details</button>
 
-            <!-- Supported Charities -->
-            <section class="card">
-                <h2>Supported Charities</h2>
-                <ul id="supported-list"></ul>
-                <form id="donation-form">
-                    <input type="text" id="charity-name" placeholder="Charity Name" required>
-                    <input type="number" id="donation-amount" placeholder="Amount" required>
-                    <button type="submit">Donate Now</button>
-                </form>
-            </section>
+    <!-- Details Section (Hidden initially) -->
+    <div id="details-section" class="hidden">
+      <section class="card">
+        <h2>Edit Profile</h2>
+        <form id="profile-form">
+          <input type="text" id="name" placeholder="Enter your full name" required>
+          <input type="email" id="email" placeholder="Enter your email address" required>
+          <input type="number" id="income" placeholder="Annual Income" required>
+          <button type="submit">Save Changes</button>
+        </form>
+      </section>
 
-            <!-- Upcoming / Recurring Donations -->
-            <section class="card">
-                <h2>Upcoming / Recurring Donations</h2>
-                <ul id="upcoming-list"></ul>
-                <form id="upcoming-form">
-                    <input type="text" id="upcoming-charity" placeholder="Charity Name" required>
-                    <input type="number" id="upcoming-amount" placeholder="Amount" required>
-                    <input type="date" id="upcoming-date" required>
-                    <button type="submit">Add Upcoming Donation</button>
-                </form>
-            </section>
-        </div>
+      <section class="card">
+        <h2>Donation History</h2>
+        <ul id="supported-list">
+          <li><span>CRY Foundation</span><span class="amount">₹750.00</span></li>
+          <li><span>Akshaya Patra</span><span class="amount">₹500.00</span></li>
+        </ul>
+        <form id="donation-form">
+          <input type="text" id="charity-name" placeholder="Charity Name" required>
+          <input type="number" id="donation-amount" placeholder="Amount" required>
+          <button type="submit">Add Donation</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Recurring Donations</h2>
+        <ul id="upcoming-list">
+          <li>
+            <span>Teach for India</span>
+            <div>
+              <span class="amount">₹1000.00</span>
+              <span class="date">Next on: 2025-10-01</span>
+            </div>
+          </li>
+        </ul>
+        <form id="upcoming-form">
+          <input type="text" id="upcoming-charity" placeholder="Charity Name" required>
+          <input type="number" id="upcoming-amount" placeholder="Amount" required>
+          <input type="date" id="upcoming-date" required>
+          <button type="submit">Schedule Donation</button>
+        </form>
+      </section>
     </div>
+  </div>
 
-    <script src="dashboard.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const showDetailsBtn = document.getElementById("show-details-btn");
+      const detailsSection = document.getElementById("details-section");
+
+      const profileForm = document.getElementById("profile-form");
+      const usernameDisplay = document.getElementById("username-display");
+      const profileName = document.getElementById("profile-name");
+      const profileEmail = document.getElementById("profile-email");
+      const profileIncome = document.getElementById("profile-income");
+
+      showDetailsBtn.addEventListener("click", () => {
+        detailsSection.classList.toggle("hidden");
+        showDetailsBtn.textContent = detailsSection.classList.contains("hidden") ? "Show Details" : "Hide Details";
+      });
+
+      profileForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const income = document.getElementById("income").value;
+
+        if (name) {
+          usernameDisplay.textContent = name;
+          profileName.textContent = name;
+        }
+        if (email) profileEmail.textContent = email;
+        if (income) profileIncome.textContent = income;
+
+        alert("Profile updated!");
+        profileForm.reset();
+      });
+    });
+  </script>
 </body>
 </html>
