@@ -1,100 +1,159 @@
-.card {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 30px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+body {
+  background: linear-gradient(to right, #f4f4f9, #e9f7f7);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
 }
 
-
+.card {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+}
 
 h1 {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Georgia', serif;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-size: 2rem;
 }
 
 .image-text {
   display: flex;
-  align-items: center; 
+  align-items: center;
+  gap: 12px;
+  margin: 25px 0 10px;
+  font-weight: bold;
+  color: #34495e;
 }
 
-.image-text img {
-  margin-right: 8px; 
-}
-input{
-  height:30px;
-  width:40%;
+.image-text i {
+  color: #3498db;
+  width: 28px;
+  height: 28px;
 }
 
-.buttons button{
-  padding:40px 90px;
-  margin-right:50px;
-  cursor:pointer;
-  border-radius:5px;
-}
-
-label {
-  border: 2px solid black;
-  height: 30px;
-  width: 200px;
-  display: none; /* hidden at start */
-  border-radius: 5px;
-  text-align: center; /* center text horizontally */
-  line-height: 30px;  /* center text vertically */
-}
-
-.main div {
-  display: inline-block;
-  vertical-align: top;      
-  text-align: center;        
-  margin-right: 20px;
-  border: 2px solid black;
-  padding: 20px;
-  border-radius: 3px;
-  border-color: blanchedalmond;
-  width: 150px;
-  height: 150px;
+input[type="number"] {
+  height: 45px;
+  width: 100%;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
   box-sizing: border-box;
+  font-size: 1rem;
+  margin-bottom: 15px;
 }
 
-.main div img {
-  height: 50px;               
-  display: block;
-  margin: 0 auto 10px auto;    
+.buttons, .frequency-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
 }
 
-.green{
-  padding:20px 80px;
-  margin-right:50px;
-  border-radius:3px;
+.amount-option, .frequency-btn {
+  flex: 1;
+  min-width: 140px;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  background-color: #f9f9f9;
+  font-size: 1rem;
+  transition: all 0.25s ease-in-out;
 }
 
-.last{
-  margin-top:30px;
-  display:inline-block;
-  padding:20px 200px;
-  background-color:rgb(153, 150, 150);
-  color:white;
-  font-size:20px;
+.amount-option:hover, .frequency-btn:hover {
+  background-color: #eef6ff;
+  border-color: #3498db;
 }
 
-.buttom {
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  gap: 20px; 
-}
-
-.buttom > div {
-  flex: 1; /* Equal widths */
-  min-width: 80px;
-  max-width: 150px;
+#donation-amount-display {
+  border: 2px solid #2ecc71;
+  padding: 12px;
+  border-radius: 8px;
   text-align: center;
-  border: 1px solid black;
-  padding: 20px;
-  border-radius: 5px;
-  justify-content:center;
-  box-sizing: border-box;
+  font-weight: bold;
+  color: #27ae60;
+  background-color: #e8f8ef;
+  margin-bottom: 20px;
 }
 
+.selection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+}
 
+.selectable-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px solid #eee;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  background-color: #fafafa;
+}
+
+.selectable-item:hover {
+  border-color: #3498db;
+  transform: translateY(-4px);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.selectable-item i {
+  margin-bottom: 8px;
+  color: #2c3e50;
+  width: 32px;
+  height: 32px;
+}
+
+.selected, .active {
+  border-color: #3498db !important;
+  background-color: #ecf5fc !important;
+  box-shadow: 0 0 12px rgba(52, 152, 219, 0.4);
+  transform: translateY(-2px);
+}
+
+.last {
+  margin-top: 40px;
+  display: block;
+  width: 100%;
+  padding: 18px;
+  background-color: #27ae60;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.last:hover {
+  background-color: #2ecc71;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .amount-option, .frequency-btn {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+}

@@ -1,3 +1,6 @@
+let loginData = JSON.parse(localStorage.getItem("loginData")) || []; 
+// Get stored login data, or start with an empty array
+
 document.getElementById("loginForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -9,7 +12,18 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
         return;
     }
 
-    // Here you would add actual backend API call for authentication
+    // store login entry
+    let loginEntry = {
+        email: email,
+        password: password, // ⚠️ not safe in real-world apps
+        time: new Date().toLocaleString()
+    };
+
+    loginData.push(loginEntry);
+
+    // save back to localStorage
+    localStorage.setItem("loginData", JSON.stringify(loginData));
+
     alert("Login successful (demo). Redirecting...");
     window.location.href = "index.html";
 });
@@ -20,4 +34,8 @@ function loginWithGoogle() {
 
 function loginWithFacebook() {
     alert("Facebook login clicked (Integrate with Facebook Login API here).");
+}
+
+function saved(email) {
+    localStorage.setItem("Email", email);
 }

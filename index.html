@@ -192,11 +192,11 @@
   <header class="header">
     <h1>1% Impact</h1>
     <div class="nav">
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Causes</a>
-      <a href="#">Donate</a>
-      <a href="#">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="causes.html">Causes</a>
+      <a href="DonatePage.html">Donate</a>
+      <a href="contacts.html">Contact</a>
     </div>
     <div class="auth-buttons">
       <a href="starting.html"><button>Back To Start</button></a>
@@ -241,5 +241,15 @@
   <footer class="footer">
     <p>© 2025 1 % Impact. All rights reserved.</p>
   </footer>
+
+
+    <script>
+    const loginBtn = document.getElementById("loginBtn");
+    loginBtn.addEventListener("click", function () {
+      localStorage.clear();
+      console.log("✅ LocalStorage cleared");
+      window.location.href = "login.html";
+    });
+  </script>
 </body>
 </html>
