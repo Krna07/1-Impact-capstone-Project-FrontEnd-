@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Donations | 1% Impact</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background: #00695c;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .donation-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .donation-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .donation-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .donation-header h3 {
+      margin: 0;
+      color: #00796b;
+    }
+
+    .status {
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    .delivered { background: #26a69a; }
+    .in-progress { background: #ffa000; }
+    .pending { background: #ef5350; }
+
+    .recipient {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .recipient img {
+      width: 80px;
+      height: 80px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .recipient-info h4 {
+      margin: 0;
+      color: #444;
+    }
+
+    .recipient-info p {
+      margin: 5px 0;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .track-btn {
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: #26a69a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .track-btn:hover {
+      background: #00796b;
+      transform: scale(1.05);
+    }
+
+    /* Timeline simulation */
+    .timeline {
+      margin-top: 1rem;
+      display: none;
+      padding-left: 20px;
+      border-left: 3px solid #26a69a;
+    }
+
+    .timeline p {
+      margin: 10px 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>My Donations</header>
+
+  <div class="container">
+
+    <!-- Donation 1 -->
+    <div class="donation-card">
+      <div class="donation-header">
+        <h3>Education Support</h3>
+        <span class="status delivered">Delivered</span>
+      </div>
+      <div class="recipient">
+        <img src="child1.jpg" alt="Recipient">
+        <div class="recipient-info">
+          <h4>Anjali, 10 yrs</h4>
+          <p>Received school books & tuition fees</p>
+          <p><b>Date:</b> 15 Aug 2025</p>
+        </div>
+      </div>
+      <button class="track-btn" onclick="toggleTimeline(this)">Track Donation</button>
+      <div class="timeline">
+        <p>✅ Donation initiated</p>
+        <p>✅ Processing payment</p>
+        <p>✅ Transferred to Education Fund</p>
+        <p>✅ Child received support</p>
+      </div>
+    </div>
+
+    <!-- Donation 2 -->
+    <div class="donation-card">
+      <div class="donation-header">
+        <h3>Medical Aid</h3>
+        <span class="status in-progress">In Progress</span>
+      </div>
+      <div class="recipient">
+        <img src="patient1.jpg" alt="Recipient">
+        <div class="recipient-info">
+          <h4>Rahul, 42 yrs</h4>
+          <p>Ongoing treatment support</p>
+          <p><b>Date:</b> 20 Aug 2025</p>
+        </div>
+      </div>
+      <button class="track-btn" onclick="toggleTimeline(this)">Track Donation</button>
+      <div class="timeline">
+        <p>✅ Donation initiated</p>
+        <p>✅ Verified by Medical Fund</p>
+        <p>⏳ Awaiting hospital confirmation</p>
+      </div>
+    </div>
+
+    <!-- Donation 3 -->
+    <div class="donation-card">
+      <div class="donation-header">
+        <h3>Food for Families</h3>
+        <span class="status pending">Pending</span>
+      </div>
+      <div class="recipient">
+        <img src="family1.jpg" alt="Recipient">
+        <div class="recipient-info">
+          <h4>Singh Family</h4>
+          <p>Awaiting food parcel delivery</p>
+          <p><b>Date:</b> 25 Aug 2025</p>
+        </div>
+      </div>
+      <button class="track-btn" onclick="toggleTimeline(this)">Track Donation</button>
+      <div class="timeline">
+        <p>✅ Donation initiated</p>
+        <p>⏳ Processing request</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleTimeline(btn) {
+      const timeline = btn.nextElementSibling;
+      if (timeline.style.display === "block") {
+        timeline.style.display = "none";
+        btn.innerText = "Track Donation";
+      } else {
+        timeline.style.display = "block";
+        btn.innerText = "Hide Tracking";
+      }
+    }
+  </script>
+</body>
+</html>
