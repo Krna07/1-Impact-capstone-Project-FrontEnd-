@@ -1,0 +1,108 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f3f9ff, #e6f4ea); /* Soft pastel gradient */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 95%;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+header {
+    text-align: center;
+    background: linear-gradient(135deg, #4CAF50, #2e7d32); /* Richer green */
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+header p {
+    margin-top: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.donation-banner {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.donate-img {
+    width: 120px; /* Reduced size */
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.donate-img:hover {
+    transform: scale(1.05);
+}
+
+#show-details-btn {
+    display: block;
+    margin: 0 auto 25px;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #ff9800, #e65100);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#show-details-btn:hover {
+    background: linear-gradient(135deg, #e68a00, #bf360c);
+    transform: translateY(-2px);
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.3rem;
+}
+
+input, button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 0.95rem;
+}
+
+button[type="submit"] {
+    background: linear-gradient(135deg, #4CAF50, #2e7d32);
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(135deg, #45a049, #1b5e20);
+}

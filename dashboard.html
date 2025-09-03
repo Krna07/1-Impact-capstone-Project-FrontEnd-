@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome, <span id="username-display">User</span></h1>
+            <p>Total Donated: ₹<span id="total-donated">0</span></p>
+        </header>
+
+        <!-- Button to show details -->
+        <button id="show-details-btn">Show All Details</button>
+
+        <!-- Sections (Initially hidden) -->
+        <div id="details-section" style="display: none;">
+            <!-- Profile Editing -->
+            <section class="card">
+                <h2>Edit Profile</h2>
+                <form id="profile-form">
+                    <input type="text" id="name" placeholder="Name" required>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <input type="number" id="income" placeholder="Annual Income" required>
+                    <button type="submit">Update Profile</button>
+                </form>
+            </section>
+
+            <!-- Supported Charities -->
+            <section class="card">
+                <h2>Supported Charities</h2>
+                <ul id="supported-list"></ul>
+                <form id="donation-form">
+                    <input type="text" id="charity-name" placeholder="Charity Name" required>
+                    <input type="number" id="donation-amount" placeholder="Amount" required>
+                    <button type="submit">Donate Now</button>
+                </form>
+            </section>
+
+            <!-- Upcoming / Recurring Donations -->
+            <section class="card">
+                <h2>Upcoming / Recurring Donations</h2>
+                <ul id="upcoming-list"></ul>
+                <form id="upcoming-form">
+                    <input type="text" id="upcoming-charity" placeholder="Charity Name" required>
+                    <input type="number" id="upcoming-amount" placeholder="Amount" required>
+                    <input type="date" id="upcoming-date" required>
+                    <button type="submit">Add Upcoming Donation</button>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

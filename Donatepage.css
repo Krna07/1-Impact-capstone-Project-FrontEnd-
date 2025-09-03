@@ -1,0 +1,100 @@
+.card {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+
+
+h1 {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.image-text {
+  display: flex;
+  align-items: center; 
+}
+
+.image-text img {
+  margin-right: 8px; 
+}
+input{
+  height:30px;
+  width:40%;
+}
+
+.buttons button{
+  padding:40px 90px;
+  margin-right:50px;
+  cursor:pointer;
+  border-radius:5px;
+}
+
+label {
+  border: 2px solid black;
+  height: 30px;
+  width: 200px;
+  display: none; /* hidden at start */
+  border-radius: 5px;
+  text-align: center; /* center text horizontally */
+  line-height: 30px;  /* center text vertically */
+}
+
+.main div {
+  display: inline-block;
+  vertical-align: top;      
+  text-align: center;        
+  margin-right: 20px;
+  border: 2px solid black;
+  padding: 20px;
+  border-radius: 3px;
+  border-color: blanchedalmond;
+  width: 150px;
+  height: 150px;
+  box-sizing: border-box;
+}
+
+.main div img {
+  height: 50px;               
+  display: block;
+  margin: 0 auto 10px auto;    
+}
+
+.green{
+  padding:20px 80px;
+  margin-right:50px;
+  border-radius:3px;
+}
+
+.last{
+  margin-top:30px;
+  display:inline-block;
+  padding:20px 200px;
+  background-color:rgb(153, 150, 150);
+  color:white;
+  font-size:20px;
+}
+
+.buttom {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 20px; 
+}
+
+.buttom > div {
+  flex: 1; /* Equal widths */
+  min-width: 80px;
+  max-width: 150px;
+  text-align: center;
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 5px;
+  justify-content:center;
+  box-sizing: border-box;
+}
+
+

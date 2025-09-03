@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Donation page</title>
+    <link rel="stylesheet" href="DonatePage.css">
+</head>
+<body>
+    <div class="card">
+    <h1>Make a Difference Today</h1>
+    <div class="image-text">
+        <img src="images/person.jpg" height="50" width="50" alt="person">
+        <p>Annual Income ($)</p>
+    </div>
+     <input type="number" placeholder="200">
+     <br>
+
+     <div class="image-text">
+        <img src="images/repee.png" height="30" width="30">
+        <p>Choose Donation Amount</p>
+     </div>
+
+     <div class="buttons">
+    <button class="percentage" onclick="calci()">1 % of Income</button>
+    <button onclick="document.getElementById('custom-input').style.display='block'">
+        Custom Amount
+    </button>
+</div><br>
+
+<label></label>
+
+<!-- Hidden custom input -->
+<input type="number" id="custom-input" placeholder="Enter custom donation" style="display:none;">
+
+<div class="image-text">
+    <img src="images/heart.webp" height="40" width="40">
+    <p>Select a Cause</p>
+</div>
+
+<div class="main">
+    <div>
+        <img src="images/cap.png" height="40" width="40">
+        <p>Education</p>
+    </div>
+    <div>
+        <img src="images/healthcare.jpg" height="40" width="40">
+        <p>HealthCare</p>
+    </div>
+    <div>
+        <img src="images/environment.jpg" height="40" width="40">
+        <p>Environment</p>
+    </div>
+    <div>
+        <img src="images/apple.jpg" height="50" width="50">
+        <p>Fighting Hunger</p>
+    </div>
+</div>
+
+<br>
+<div class="image-text">
+    <img src="images/donation.png" height="50" width="50">
+    <p>Donation Frequency</p>
+
+</div>
+
+<button class="green" onclick="donationtype(this)">One-time</button>
+<button class="green" onclick="donationtype(this)">Recurring</button>
+
+<br>
+<br>
+<div class="image-text">
+    <img src="images/folder.jpg" height="40" width="40">
+    <p>Select payment method</p>
+</div>
+<div class="buttom">
+    <div>
+        <img src="images/phone pay.png" height="40" width="40">
+        <p>PhonePe</p>
+    </div>
+    <div>
+        <img src="images/images.png" height="40" width="40">
+        <p>Razorpay</p>
+    </div>
+    <div>
+        <img src="images/paypal.png" height="40" width="40">
+        <p>PayPal</p>
+    </div>
+</div>
+
+
+<button class="last">Donate now</button>
+
+</div>
+
+
+     <script src="DonatePage.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - 1% Impact</title>
+  <link rel="stylesheet" href="signup.css" />
+</head>
+<body>
+  <div class="signup-container">
+    <h2>Create Your Account</h2>
+    <form id="signupForm">
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <input type="text" id="country" placeholder="Country" required />
+      <input type="number" id="age" placeholder="Age" min="1" required />
+
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <p>Or sign up with:</p>
+    <div class="social-login">
+      <button class="google">Sign up with Google</button>
+      <button class="facebook">Sign up with Facebook</button>
+    </div>
+
+    <p>Already have an account? <a href="login.html">Login</a></p>
+  </div>
+
+  <script src="signup.js"></script>
+</body>
+</html>

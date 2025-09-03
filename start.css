@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: gilroy;
+}
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.imgcon{
+    background-image: url('18880485_v991-a-23-b-removebg-preview.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 65vh;
+    width: 40vh;
+    border: 4vh solid rgb(242, 237, 237);
+    border-radius: 30vw;
+    top: 10vh;
+
+}
+.decor{
+    position: absolute;
+    height:     30vh;
+    width: 120vh;
+    background-color: black;
+    right: 0;
+    bottom: 0px;
+    border-top-left-radius: 100%;
+
+}
+button{
+    position: absolute;
+     background-color: #03ccb5;
+    right: 20vh;
+    bottom: 10vh;
+    height: 8vh;
+    width: 20vh;
+    border-radius: 3vh;
+    border: none;
+
+}
+.intro{
+    position: absolute;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 900;
+    left: 5vh;
+    font-size: 2.5rem;
+    width: 60vh;
+    border-bottom: 5px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+   
+}
+button:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.imgcon:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    transform: scale(1.03);
+    transition: all 0.3s ease;
+}
+
+.intro:hover {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+     background-color: #00796b;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vh 3vw;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-family: 'Gilroy', sans-serif;
+    border-bottom: 1px solid black;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nav a {
+    margin: 0 1.5vw;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #b2ff59;
+}
+
+.contact-info {
+    font-size: 0.9rem;
+}
