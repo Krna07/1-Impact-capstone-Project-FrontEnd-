@@ -16,7 +16,7 @@
       --background-color: #f8fafc;
       --card-background: #ffffff;
       --text-primary: #030303;
-      --text-secondary: #010101;
+      --text-secondary: #4b5563;
       --border-color: #e2e8f0;
       --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
       --border-radius: 8px;
@@ -80,9 +80,29 @@
       font-size: 0.95rem;
     }
 
-    .profile-info span {
-      font-weight: 600;
-      color: var(--text-primary);
+    .credits {
+      margin-top: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #00695c;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .credits button {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+    }
+
+    .credits button:hover {
+      background: var(--primary-hover);
     }
 
     /* Toggle Button */
@@ -131,58 +151,61 @@
       padding-bottom: 8px;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+    /* Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
     }
 
-    form input, form button {
-      padding: 10px;
+    .modal-content {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .modal-content h3 {
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+      color: var(--primary-color);
+    }
+
+    .modal-content button {
+      margin: 10px;
+      padding: 10px 16px;
       border-radius: var(--border-radius);
-      border: 1px solid var(--border-color);
-    }
-
-    form input:focus {
-      outline: none;
-      border-color: var(--primary-color);
-    }
-
-    form button {
-      background: var(--primary-color);
-      color: #fff;
       border: none;
       cursor: pointer;
-    }
-
-    form button:hover {
-      background: var(--primary-hover);
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin-bottom: 15px;
-    }
-
-    ul li {
-      background: #f9fafb;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      padding: 10px;
-      margin-bottom: 8px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    ul li .amount {
-      color: #16a34a;
       font-weight: 600;
     }
 
-    ul li .date {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
+    .donate-btn {
+      background: #16a34a;
+      color: #fff;
+    }
+
+    .loan-btn {
+      background: #2563eb;
+      color: #fff;
+    }
+
+    .close-btn {
+      background: #e11d48;
+      color: #fff;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.9);}
+      to {opacity: 1; transform: scale(1);}
     }
   </style>
 </head>
@@ -193,13 +216,17 @@
       <p>Total Donated: ₹<span id="total-donated">1250.00</span></p>
     </header>
 
-    <!-- Profile Overview (Always Visible) -->
+    <!-- Profile Overview -->
     <section class="profile-overview">
       <h2>Profile Overview</h2>
       <div class="profile-info">
         <p><strong>Name:</strong> <span id="profile-name">User</span></p>
         <p><strong>Email:</strong> <span id="profile-email">user@example.com</span></p>
         <p><strong>Annual Income:</strong> ₹<span id="profile-income">500000</span></p>
+        <div class="credits">
+          <span>Social Credits: <span id="profile-credits">12</span> ⭐</span>
+          <button id="use-credits-btn">Use It</button>
+        </div>
       </div>
     </section>
 
@@ -216,72 +243,60 @@
           <button type="submit">Save Changes</button>
         </form>
       </section>
+    </div>
+  </div>
 
-      <section class="card">
-        <h2>Donation History</h2>
-        <ul id="supported-list">
-          <li><span>CRY Foundation</span><span class="amount">₹750.00</span></li>
-          <li><span>Akshaya Patra</span><span class="amount">₹500.00</span></li>
-        </ul>
-        <form id="donation-form">
-          <input type="text" id="charity-name" placeholder="Charity Name" required>
-          <input type="number" id="donation-amount" placeholder="Amount" required>
-          <button type="submit">Add Donation</button>
-        </form>
-      </section>
-
-      <section class="card">
-        <h2>Recurring Donations</h2>
-        <ul id="upcoming-list">
-          <li>
-            <span>Teach for India</span>
-            <div>
-              <span class="amount">₹1000.00</span>
-              <span class="date">Next on: 2025-10-01</span>
-            </div>
-          </li>
-        </ul>
-        <form id="upcoming-form">
-          <input type="text" id="upcoming-charity" placeholder="Charity Name" required>
-          <input type="number" id="upcoming-amount" placeholder="Amount" required>
-          <input type="date" id="upcoming-date" required>
-          <button type="submit">Schedule Donation</button>
-        </form>
-      </section>
+  <!-- Modal -->
+  <div id="credits-modal" class="modal">
+    <div class="modal-content">
+      <h3>Use Your Social Credits</h3>
+      <p>You have <strong><span id="modal-credits">12</span> credits</strong> available.</p>
+      <button class="donate-btn" id="convert-donate">Convert to Donation</button>
+      <button class="loan-btn" id="use-loan">Use for Loan</button>
+      <button class="close-btn" id="close-modal">Cancel</button>
     </div>
   </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const showDetailsBtn = document.getElementById("show-details-btn");
-      const detailsSection = document.getElementById("details-section");
+      const profileCreditsEl = document.getElementById("profile-credits");
+      const modalCreditsEl = document.getElementById("modal-credits");
+      const creditsModal = document.getElementById("credits-modal");
 
-      const profileForm = document.getElementById("profile-form");
-      const usernameDisplay = document.getElementById("username-display");
-      const profileName = document.getElementById("profile-name");
-      const profileEmail = document.getElementById("profile-email");
-      const profileIncome = document.getElementById("profile-income");
+      let credits = parseInt(profileCreditsEl.textContent);
 
-      showDetailsBtn.addEventListener("click", () => {
-        detailsSection.classList.toggle("hidden");
-        showDetailsBtn.textContent = detailsSection.classList.contains("hidden") ? "Show Details" : "Hide Details";
+      // Open Modal
+      document.getElementById("use-credits-btn").addEventListener("click", () => {
+        modalCreditsEl.textContent = credits;
+        creditsModal.style.display = "flex";
       });
 
-      profileForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const income = document.getElementById("income").value;
+      // Close Modal
+      document.getElementById("close-modal").addEventListener("click", () => {
+        creditsModal.style.display = "none";
+      });
 
-        if (name) {
-          usernameDisplay.textContent = name;
-          profileName.textContent = name;
+      // Convert Credits into Donation
+      document.getElementById("convert-donate").addEventListener("click", () => {
+        if (credits > 0) {
+          const money = credits * 1; // ₹1 per credit
+          alert(`🎉 Converted ${credits} credits into ₹${money} donation!`);
+          credits = 0;
+          profileCreditsEl.textContent = credits;
+          creditsModal.style.display = "none";
+        } else {
+          alert("No credits available!");
         }
-        if (email) profileEmail.textContent = email;
-        if (income) profileIncome.textContent = income;
+      });
 
-        alert("Profile updated!");
-        profileForm.reset();
+      // Use Credits for Loan
+      document.getElementById("use-loan").addEventListener("click", () => {
+        if (credits > 0) {
+          alert(`📄 Loan Certificate Generated!\nYour ${credits} credits prove your strong social responsibility.`);
+          creditsModal.style.display = "none";
+        } else {
+          alert("No credits available!");
+        }
       });
     });
   </script>

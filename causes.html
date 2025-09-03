@@ -18,47 +18,95 @@
       text-align: center;
     }
     .causes {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
       padding: 3rem;
+      max-width: 1100px;
+      margin: auto;
     }
     .cause-box {
       background: white;
       padding: 2rem;
-      border-radius: 10px;
+      border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      width: 280px;
       text-align: center;
       transition: 0.3s;
     }
     .cause-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     }
-    h3 {
+    .cause-box h3 {
       color: #00796b;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
+    }
+    .cause-box p {
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+    }
+    .icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.6rem;
+      color: #004d40;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: #00796b;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #004d40;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Our Causes</h1>
+    <p>Together, even 1% makes a big difference.</p>
   </header>
+
   <div class="causes">
     <div class="cause-box">
+      <div class="icon">🍲</div>
       <h3>Feed the Hungry</h3>
-      <p>Provide meals to families struggling with hunger.</p>
+      <p>Provide nutritious meals to families struggling with hunger.</p>
+      <a href="#" class="btn">Learn More</a>
     </div>
     <div class="cause-box">
+      <div class="icon">📚</div>
       <h3>Educate a Child</h3>
-      <p>Sponsor school supplies and tuition for children.</p>
+      <p>Sponsor school supplies and tuition for underprivileged children.</p>
+      <a href="#" class="btn">Learn More</a>
     </div>
     <div class="cause-box">
+      <div class="icon">🏥</div>
       <h3>Medical Aid</h3>
-      <p>Fund healthcare for underprivileged patients.</p>
+      <p>Fund healthcare and life-saving medicines for those in need.</p>
+      <a href="#" class="btn">Learn More</a>
+    </div>
+    <div class="cause-box">
+      <div class="icon">🌳</div>
+      <h3>Plant Trees</h3>
+      <p>Support reforestation projects and fight climate change.</p>
+      <a href="#" class="btn">Learn More</a>
+    </div>
+    <div class="cause-box">
+      <div class="icon">💧</div>
+      <h3>Clean Water</h3>
+      <p>Help build wells and provide safe drinking water to villages.</p>
+      <a href="#" class="btn">Learn More</a>
+    </div>
+    <div class="cause-box">
+      <div class="icon">🏠</div>
+      <h3>Support Shelters</h3>
+      <p>Provide housing and care for homeless and abandoned individuals.</p>
+      <a href="#" class="btn">Learn More</a>
     </div>
   </div>
 </body>

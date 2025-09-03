@@ -49,7 +49,10 @@
     .auth-buttons {
       display: flex;
       gap: 0.8rem;
+      align-items: center;
+      position: relative;
     }
+
     .auth-buttons button {
       padding: 0.4rem 1rem;
       background-color: white;
@@ -148,6 +151,11 @@
       color: #00796b;
     }
 
+    .feature-box a {
+      text-decoration: none;
+      color: inherit;
+    }
+
     .footer {
       text-align: center;
       padding: 1rem;
@@ -156,36 +164,87 @@
       margin-top: 2rem;
       box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.2);
     }
-    /* Profile circle same size as buttons */
-.profile-icon {
-  width: 50px;   /* same height as buttons */
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;   /* optional background */
-  border: 1px solid rgb(78, 77, 77);
-  margin-left: 10px; /* space from Login/Signup button */
-  transition: transform 0.2s ease;
 
-}
+    /* Profile circle */
+    .profile-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      border: 1px solid rgb(78, 77, 77);
+      transition: transform 0.2s ease;
+    }
 
-.profile-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  background-size: 20px 20px;
-  background-position: center;
+    .profile-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-}
+    .profile-icon:hover {
+      transform: scale(1.05);
+    }
 
-.profile-icon:hover {
-  transform: scale(1.05);
-}
+    /* Notification bell */
+    .notification-bell {
+      position: relative;
+      cursor: pointer;
+      font-size: 24px;
+      color: white;
+    }
 
+    .notification-bell:hover {
+      transform: scale(1.1);
+    }
+
+    .notification-bell .badge {
+      position: absolute;
+      top: -5px;
+      right: -10px;
+      background: red;
+      color: white;
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 50%;
+    }
+
+    .notification-dropdown {
+      display: none;
+      position: absolute;
+      top: 50px;
+      right: 60px;
+      background: white;
+      color: #333;
+      width: 250px;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+      border-radius: 8px;
+      overflow: hidden;
+      z-index: 100;
+    }
+
+    .notification-dropdown ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .notification-dropdown li {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .notification-dropdown li:last-child {
+      border-bottom: none;
+    }
+
+    .notification-dropdown li:hover {
+      background-color: #f1f1f1;
+    }
   </style>
 </head>
 <body>
@@ -200,14 +259,27 @@
     </div>
     <div class="auth-buttons">
       <a href="starting.html"><button>Back To Start</button></a>
-    <a href="login.html">
-  <button>Login/SignUp</button>
-</a>
-<div class="top-bar">
-    <a href="dashboard.html" class="profile-icon">
-      <img src="user.png" alt="User">
-    </a>
-  </div>
+      <a href="login.html"><button>Login/SignUp</button></a>
+
+      <!-- Notification Bell -->
+      <div class="notification-bell" id="bell">
+        🔔
+        <span class="badge" id="badge">3</span>
+      </div>
+
+      <!-- Dropdown -->
+      <div class="notification-dropdown" id="notificationDropdown">
+        <ul>
+          <li>🎉 Thank you for your donation!</li>
+          <li>📢 New campaign launched: Medical Aid</li>
+          <li>💡 Your impact is growing every day!</li>
+        </ul>
+      </div>
+
+      <!-- Profile Icon -->
+      <a href="dashboard.html" class="profile-icon">
+        <img src="user.png" alt="User">
+      </a>
     </div>
   </header>
 
@@ -215,40 +287,60 @@
     <div class="hero-content">
       <h2>Together, We Can Make a Difference</h2>
       <p>Your small help can bring big change to someone's life.</p>
-      <!-- Option 1: Direct link -->
-<a href="DonatePage.html">
-  <button>Donate Now</button>
-</a>
-
+      <a href="DonatePage.html"><button>Donate Now</button></a>
     </div>
   </section>
 
   <section class="features">
     <div class="feature-box">
-      <h3>Feed the Hungry</h3>
-      <p>Provide food to families in need.</p>
+      <a href="feed.html">
+        <h3>Feed the Hungry</h3>
+        <p>Provide food to families in need.</p>
+      </a>
     </div>
     <div class="feature-box">
-      <h3>Educate a Child</h3>
-      <p>Support education for underprivileged kids.</p>
+      <a href="education.html">
+        <h3>Educate a Child</h3>
+        <p>Support education for underprivileged kids.</p>
+      </a>
     </div>
     <div class="feature-box">
-      <h3>Medical Help</h3>
-      <p>Fund medical treatments and supplies.</p>
+      <a href="medical.html">
+        <h3>Medical Help</h3>
+        <p>Fund medical treatments and supplies.</p>
+      </a>
     </div>
   </section>
 
   <footer class="footer">
-    <p>© 2025 1 % Impact. All rights reserved.</p>
+    <p>© 2025 1% Impact. All rights reserved.</p>
   </footer>
 
-
-    <script>
+  <script>
+    // Clear localStorage when login button is clicked
     const loginBtn = document.getElementById("loginBtn");
-    loginBtn.addEventListener("click", function () {
-      localStorage.clear();
-      console.log("✅ LocalStorage cleared");
-      window.location.href = "login.html";
+    if (loginBtn) {
+      loginBtn.addEventListener("click", function () {
+        localStorage.clear();
+        console.log("✅ LocalStorage cleared");
+        window.location.href = "login.html";
+      });
+    }
+
+    // Toggle notifications
+    const bell = document.getElementById("bell");
+    const dropdown = document.getElementById("notificationDropdown");
+
+    bell.addEventListener("click", () => {
+      dropdown.style.display =
+        dropdown.style.display === "block" ? "none" : "block";
+    });
+
+    // Close dropdown if clicked outside
+    document.addEventListener("click", (event) => {
+      if (!bell.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.style.display = "none";
+      }
     });
   </script>
 </body>
